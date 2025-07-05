@@ -1,0 +1,1 @@
+require "jekyll/baidu_push_generator"
