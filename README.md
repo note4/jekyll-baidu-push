@@ -1,5 +1,8 @@
 # jekyll-baidu-push
-通过百度搜索引擎推送 API ，将你的 Jekyll 站点链接推送给百度索引
+
+通过百度搜索引擎推送 API ，在云端构建和部署的时候会将你的 Jekyll 站点链接推送给百度索引。
+
+- [Gitlab 构建并部署 pages 截图](https://github.com/note4/jekyll-baidu-push/wiki)
 
 ## 安装教程
 
@@ -16,7 +19,7 @@ plugins:
 
 
 baidu_push:
-  # true 启用插件 或 false（禁用插件）
+  # true 启用插件 或 false （禁用插件）
   enabled: true   
   type: "pages"
   limit: 10
@@ -39,6 +42,8 @@ plugins:
 
 # jekyll-baidu-push plugins guide
 baidu_push:
+  # true 启用插件 或 false （禁用插件）
+  enabled: true   
   # 可选: "posts" | "pages" | "all"
   type: "pages" 
   # 只推送最近修改的 10 个页面
@@ -59,4 +64,21 @@ baidu_push:
     - /baidu_verify_codeva-n2azB6oAAA.html
     - /google009f7cd40c002555.html
     - /404.html
+```
+
+## 避免本地构建影响预览速度
+
+在根目录新增一个 `_config_local.yml` 文件，内容如下
+
+```yml
+# plugins
+baidu_push:
+  enabled: false
+  # true 开启推送， false  不执行推送
+```
+
+本地命令运行服务使用以下命令
+
+```bash
+bundle exec jekyll serve --livereload --config _config.yml,_config_local.yml
 ```
